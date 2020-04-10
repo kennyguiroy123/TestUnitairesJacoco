@@ -142,7 +142,7 @@
           <url>http://localhost:8080/manager/text</url>
           <username>deployer</username>
           <password>azerty</password>
-          <warFile>C:\Users\Kenny\Projet-TestUnitaire\TestUnitairesJacoco\pizza-spring\target\pizza-spring-0.0.1-SNAPSHOT.war</warFile>
+          <warFile>C:\Users\Kenny\Projet-TestUnitaire\TestUnitairesJacoco\target\pizza-spring-0.0.1-SNAPSHOT.war</warFile>
         </configuration>
         <executions>
         	<execution>
@@ -153,9 +153,9 @@
         		</goals>
         		<configuration>
         			<encoding>UTF-8</encoding>
-        			<consoleOutput>true</consoleOutput>
-        			<failsOnError>true</failsOnError>
         			<update>true</update>
+        			<consoleOutput>true</consoleOutput>
+        			<failsOnError>true</failsOnError>       			
         		</configuration>
         	</execution>
         </executions>
