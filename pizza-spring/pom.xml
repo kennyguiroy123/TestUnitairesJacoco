@@ -117,6 +117,48 @@
             <encoding>utf-8</encoding>
             <verbose>true</verbose>
         </configuration>
+        <executions>
+                   <execution>
+                      <id>validatejacoco</id>
+                      <phase>process-test-classes</phase>
+                      <goals>
+                         <goal>prepare-agent</goal>
+                      </goals>
+                   </execution>
+                   <execution>
+                      <id>validatejacoco2</id>
+                      <phase>test</phase>
+                      <goals>
+                         <goal>report</goal>
+                      </goals>
+                   </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+          <url>http://localhost:8080/manager/text</url>
+          <username>deployer</username>
+          <password>azerty</password>
+          <warFile>C:\Users\Kenny\Projet-TestUnitaire\TestUnitairesJacoco\pizza-spring\target\pizza-spring-0.0.1-SNAPSHOT.war</warFile>
+        </configuration>
+        <executions>
+        	<execution>
+        		<id>validate</id>
+        		<phase>package</phase>
+        		<goals>
+        			<goal>deploy</goal>
+        		</goals>
+        		<configuration>
+        			<encoding>UTF-8</encoding>
+        			<consoleOutput>true</consoleOutput>
+        			<failsOnError>true</failsOnError>
+        			<update>true</update>
+        		</configuration>
+        	</execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
