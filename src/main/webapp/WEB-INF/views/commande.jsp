@@ -36,7 +36,7 @@
 			<form:input path="telephone" />
 			<form:errors cssClass="error" path="telephone" />
 		</div>
-		<button type="submit">Commander</button>
+		<button id="BoutonSubmit" type="submit">Commander</button>
 	</form:form>
   </body>
 </html>

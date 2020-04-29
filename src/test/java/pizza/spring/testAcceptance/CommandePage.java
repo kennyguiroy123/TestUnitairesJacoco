@@ -1,4 +1,4 @@
-package pizza.spring.service;
+package pizza.spring.testAcceptance;
 
 import static org.junit.Assert.assertTrue;
 
@@ -26,16 +26,28 @@ public class CommandePage {
 		commandePage.open();
 		return commandePage;
 	}
+	
+	public CommandePage selectionPizza() {
+		CommandePage selectionpizza = new CommandePage(webDriver);
+		
+		return this;
+	}
 
-	public CommandePage enterKeywords(String... words) {
-		WebElement searchInput = webDriver.findElement(By.name("q"));
+	public CommandePage enterKeywordsNom(String... words) {
+		WebElement searchInput = webDriver.findElement(By.name("nom"));
+		searchInput.sendKeys(String.join(" ", words));
+		return this;
+	}
+	
+	public CommandePage enterKeywordsTel(String... words) {
+		WebElement searchInput = webDriver.findElement(By.name("telephone"));
 		searchInput.sendKeys(String.join(" ", words));
 		return this;
 	}
 
-	public ResultPage clickOnSearch() {
-		WebElement searchButton = webDriver.findElement(By.id("search_button_commandePage"));
-		searchButton.click();
+	public ResultPage clickOnSubmit() {
+		WebElement submitButton = webDriver.findElement(By.id("BoutonSubmit"));
+		submitButton.click();
 		return new ResultPage(webDriver);
 	}
 

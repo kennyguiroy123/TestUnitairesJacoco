@@ -1,4 +1,4 @@
-package pizza.spring.service;
+package pizza.spring.testAcceptance;
 
 import static org.junit.Assert.assertTrue;
 
@@ -16,5 +16,9 @@ public class ResultPage {
 
 	public boolean isLinkPresent(String link) {
 		return ! webDriver.findElements(By.partialLinkText(link)).isEmpty();
+	}
+	
+	public boolean isPizzaCommander() {
+		return ! webDriver.findElement(By.id("pizzaId")).isSelected();
 	}
 }

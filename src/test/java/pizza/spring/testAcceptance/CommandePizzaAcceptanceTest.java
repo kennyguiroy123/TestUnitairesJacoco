@@ -1,4 +1,4 @@
-package pizza.spring.service;
+package pizza.spring.testAcceptance;
 
 import static org.junit.Assert.assertTrue;
 
@@ -25,8 +25,9 @@ public class CommandePizzaAcceptanceTest {
 	@Test
 	public void checkSeleniumDevSiteFoundInFirstPageOfDuckduckgo() throws Exception {
 		ResultPage resultPage = CommandePage.openWith(webDriver)
-				                        .enterKeywords("Guiroy")
-				                        .clickOnSearch();
+				                        .enterKeywordsNom("Guiroy")
+				                        .enterKeywordsTel("09427816327").clickOnSubmit();
+		assertTrue(resultPage.isPizzaCommander());
 
 		assertTrue(resultPage.isLinkPresent("/pizza-spring/commande"));
 	}
