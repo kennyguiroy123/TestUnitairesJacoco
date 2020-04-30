@@ -23,13 +23,16 @@ public class CommandePizzaAcceptanceTest {
 	}
 
 	@Test
-	public void checkSeleniumDevSiteFoundInFirstPageOfDuckduckgo() throws Exception {
+	public void checkSeleniumDevSiteFoundCommandePizza() throws Exception {
 		ResultPage resultPage = CommandePage.openWith(webDriver)
+										.selectionPizza()
 				                        .enterKeywordsNom("Guiroy")
 				                        .enterKeywordsTel("09427816327").clickOnSubmit();
+		
 		assertTrue(resultPage.isPizzaCommander());
-
-		assertTrue(resultPage.isLinkPresent("/pizza-spring/commande"));
+		assertTrue(resultPage.isPizzaNomSaisie());
+		assertTrue(resultPage.isPizzaTelSaisie());
+		
 	}
 
 }

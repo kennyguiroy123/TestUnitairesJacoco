@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class CommandePage {
@@ -29,6 +30,9 @@ public class CommandePage {
 	
 	public CommandePage selectionPizza() {
 		CommandePage selectionpizza = new CommandePage(webDriver);
+		WebElement searchSelect = webDriver.findElement(By.id("pizzaId"));
+		
+		new Select(searchSelect).deselectByIndex(0);
 		
 		return this;
 	}

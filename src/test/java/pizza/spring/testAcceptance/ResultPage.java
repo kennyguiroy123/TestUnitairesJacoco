@@ -21,4 +21,12 @@ public class ResultPage {
 	public boolean isPizzaCommander() {
 		return ! webDriver.findElement(By.id("pizzaId")).isSelected();
 	}
+	
+	public boolean isPizzaNomSaisie() {
+		return ! webDriver.findElements(By.id("nom.errors")).isEmpty();
+	}
+	
+	public boolean isPizzaTelSaisie() {
+		return ! webDriver.findElements(By.id("telephone.errors")).isEmpty();
+	}
 }
