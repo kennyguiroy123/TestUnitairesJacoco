@@ -23,16 +23,33 @@ public class CommandePizzaAcceptanceTest {
 	}
 
 	@Test
-	public void checkSeleniumDevSiteFoundCommandePizza() throws Exception {
+	public void CommandePizza() throws Exception {
 		ResultPage resultPage = CommandePage.openWith(webDriver)
 										.selectionPizza()
 				                        .enterKeywordsNom("Guiroy")
 				                        .enterKeywordsTel("09427816327").clickOnSubmit();
 		
 		assertTrue(resultPage.isPizzaCommander());
-		assertTrue(resultPage.isPizzaNomSaisie());
-		assertTrue(resultPage.isPizzaTelSaisie());
 		
 	}
-
+	@Test
+	public void CommandePizzaSansNom() throws Exception {
+		ResultPage resultPage = CommandePage.openWith(webDriver)
+										.selectionPizza()				                        
+				                        .enterKeywordsTel("09427816327").clickOnSubmit();
+		
+		assertTrue(resultPage.isPizzaNomSaisie());
+		
+	}
+	@Test
+	public void CommandePizzaSansTel() throws Exception {
+		ResultPage resultPage = CommandePage.openWith(webDriver)
+										.selectionPizza()
+				                        .enterKeywordsNom("Guiroy")
+				                        .clickOnSubmit();
+		
+		assertTrue(resultPage.isPizzaTelSaisie());		
+	}
+	
+	
 }

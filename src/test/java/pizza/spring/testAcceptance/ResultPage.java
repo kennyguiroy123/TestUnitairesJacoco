@@ -13,10 +13,6 @@ public class ResultPage {
 		this.webDriver = webDriver;
 		assertTrue("Titre de page inattendu " + webDriver.getTitle(), webDriver.getTitle().endsWith("Pizza Spring"));
 	}
-
-	public boolean isLinkPresent(String link) {
-		return ! webDriver.findElements(By.partialLinkText(link)).isEmpty();
-	}
 	
 	public boolean isPizzaCommander() {
 		return ! webDriver.findElement(By.id("pizzaId")).isSelected();
